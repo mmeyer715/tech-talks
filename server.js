@@ -1,17 +1,13 @@
-// TODO:
-// create express session that times out after certain period of time
-// create create, read, update, and delete routes for user model
-// create login/sign up for user
-// create validation for username and password
-// create html
+
 
 // required packagese
 const express = require('express');
-const path = requre('path');
+const path = reqiure('path');
 const sequelize = require('./config/connection');
 const sessions = require('express-sessions');
 const exphbs = require('express-handlebars');
 const sequelizeStore = require('connect-session-sequelize')(sessions.Store);
+const routes = require('./routes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
