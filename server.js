@@ -4,7 +4,7 @@ const path = require('path');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const sequelizeStore = require('connect-session-sequelize')(sessions.Store);
+const sequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./routes');
 
 const app = express();
@@ -37,4 +37,3 @@ sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Port ${PORT} now listening!`));
 });
 
-// write CRUD routes

@@ -1,0 +1,1 @@
+// create blog seeds to add to database to render homepage
