@@ -1,17 +1,16 @@
-<ol class="blog-list">
+<ul class="blog-list">
     {{#each blogs as |blog|}}
     <li>
         <article class="blog">
             <div class="title">
                 <h1>{{ title }}</h1>
-                <span>({{post_contents}})</span>
+                <p>{{post_contents}}</p>
             </div>
             <div class="meta">
-                {{user.username}} on
+                By: {{User.user_name}} on
                 {{created_at}}
-                |
             </div>
         </article>
     </li>
     {{/each}}
-</ol>
+</ul>

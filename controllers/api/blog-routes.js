@@ -1,6 +1,5 @@
 // required packages
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
 const { Blog, User } = require('../../models');
 
 // get all posts
@@ -10,6 +9,7 @@ router.get('/', async (req, res) => {
             attributes: [
                 'title',
                 'post_contents',
+                'created_at'
             ],
             order: [['created_at', 'DESC']],
             include: [
@@ -20,6 +20,20 @@ router.get('/', async (req, res) => {
             ]
         });
         res.status(200).json(blogData)
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.post('/', async (req, res) => {
+    try {
+        const blogData = await Blog.create({
+        title: req.body.title,
+        post_contents: req.body.post_contents,
+        user_id: req.body.user_id
+        });
+        res.status(200).json(blogData);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

@@ -4,12 +4,13 @@ const { Blog, User } = require('../models');
 
 router.get('/', async (req, res) => {
     try{
-        const blogData = Blog.findAll({
+        const blogData = await Blog.findAll({
             attributes: [
                 'title',
                 'post_contents',
                 'created_at'
             ],
+            order: [['created_at', 'DESC']],
             include: [
                 {
                     model: User,
