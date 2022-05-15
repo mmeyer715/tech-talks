@@ -23,7 +23,7 @@ const sess = {
     })
 };
 
-
+// setting up express session handlebars
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
