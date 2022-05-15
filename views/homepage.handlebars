@@ -1,3 +1,17 @@
-<div>
-    <h1>Homepage</h1>
-</div>
+<ol class="blog-list">
+    {{#each blogs as |blog|}}
+    <li>
+        <article class="blog">
+            <div class="title">
+                <h1>{{ title }}</h1>
+                <span>({{post_contents}})</span>
+            </div>
+            <div class="meta">
+                {{user.username}} on
+                {{created_at}}
+                |
+            </div>
+        </article>
+    </li>
+    {{/each}}
+</ol>
