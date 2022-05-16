@@ -2,7 +2,7 @@
 const router = require('express').Router();
 const { Blog, User } = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
     try{
         const blogData = await Blog.findAll({
             attributes: [
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
                 }
             ]
         });
-        const blogs = await blogData.map(post => post.get({ plain: true }));
+        const blogs = blogData.map(post => post.get({ plain: true }));
         res.render('homepage', { blogs });
     }
     catch (err) {
