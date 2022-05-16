@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
                 'post_contents',
                 'created_at'
             ],
-            order: [['created_at', 'DESC']],
             include: [
                 {
                     model: User,
@@ -18,7 +17,7 @@ router.get('/', async (req, res) => {
                 }
             ]
         });
-        const blogs = (await blogData).map(post => post.get({ plain: true }));
+        const blogs = await blogData.map(post => post.get({ plain: true }));
         res.render('homepage', { blogs });
     }
     catch (err) {
@@ -26,10 +25,6 @@ router.get('/', async (req, res) => {
         res.status(500).json(err)
     }
 });
-
-router.get('/', (req, res) => {
-    console.log(req.session);
-})
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
@@ -39,5 +34,8 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.get('/', (req, res) => {
+    console.log(req.session);
+});
 
 module.exports = router;
