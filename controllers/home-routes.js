@@ -4,7 +4,7 @@ const { Blog, User } = require('../models');
 
 router.get('/', (req, res) => {
     try{
-        const blogData = await Blog.findAll({
+        const blogData = Blog.findAll({
             attributes: [
                 'title',
                 'post_contents',
