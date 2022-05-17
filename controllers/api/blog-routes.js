@@ -34,6 +34,41 @@ router.get('/', async (req, res) => {
     }
 });
 
+// get one post 
+router.get('/:id', async (req, res) => {
+    try {
+        const blogData = await Blog.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: [
+                'title',
+                'post_contents',
+                'created_at'
+            ],
+            order: [['created_at', 'DESC']],
+            include: [
+                {
+                   model: Comment,
+                   attributes: ['comment_text', 'created_at'],
+                   include: {
+                       model: User,
+                       attributes: ['user_name']
+                   }
+                },
+                {
+                    model: User,
+                    attributes: ['user_name']
+                }
+            ]
+        });
+        res.status(200).json(blogData)
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 router.post('/', async (req, res) => {
     try {
         const blogData = await Blog.create({
