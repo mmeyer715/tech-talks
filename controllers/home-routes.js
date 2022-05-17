@@ -35,6 +35,45 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/blogs/:id', async  (req, res) => {
+    try {
+        const blogData = await Blog.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: [
+                'post_contents',
+                'title',
+                'created_at'
+            ],
+            include: [
+                {
+                    model: Comment,
+                    attributes: ['comment_text', 'created_at'],
+                    include: {
+                        model: User,
+                        attributes: ['user_name']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['user_name']
+                }
+            ]
+        });
+        if(!blogData) {
+            res.status(404).json({message: 'No user found with that id!'})
+            return;
+        }
+        const blog = await blogData.get({ plain: true });
+        res.render('single-blog', { blog })
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    } 
+});
+
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');

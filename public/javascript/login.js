@@ -48,5 +48,4 @@ async function loginForm(event) {
 }
 
 document.querySelector('.loginForm').addEventListener('submit', loginForm);
-
 document.querySelector('.signupForm').addEventListener('submit', signUpForm);

@@ -1,0 +1,11 @@
+<article class="blog">
+    <div class="title">
+        <a href="{{Blog.post_contents}}" target="_blank">{{Blog.title}}</a>
+        <span>({{Blog.post_contents}})</span>
+    </div>
+    <div class="meta">
+        By: {{Blog.User.user_name}} on {{Blog.created_at}}
+        |
+        <a href="/blogs/{{Blog.id}}">{{Blog.Comments.length}} comments</a>
+    </div>
+</article>
