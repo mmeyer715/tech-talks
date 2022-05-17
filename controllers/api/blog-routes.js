@@ -1,6 +1,6 @@
 // required packages
 const router = require('express').Router();
-const { Blog, User } = require('../../models');
+const { Blog, User, Comment } = require('../../models');
 
 // get all posts
 router.get('/', async (req, res) => {
@@ -13,6 +13,14 @@ router.get('/', async (req, res) => {
             ],
             order: [['created_at', 'DESC']],
             include: [
+                {
+                   model: Comment,
+                   attributes: ['comment_text', 'blog_id', 'user_id', 'created_at'],
+                   include: {
+                       model: User,
+                       attributes: ['user_name']
+                   }
+                },
                 {
                     model: User,
                     attributes: ['user_name']
