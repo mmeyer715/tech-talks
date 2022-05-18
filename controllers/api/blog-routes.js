@@ -7,6 +7,7 @@ router.get('/', async (req, res) => {
     try {
         const blogData = await Blog.findAll({
             attributes: [
+                'id',
                 'title',
                 'post_contents',
                 'created_at'
@@ -15,7 +16,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                    model: Comment,
-                   attributes: ['comment_text', 'created_at'],
+                   attributes: ['id', 'comment_text', 'created_at'],
                    include: {
                        model: User,
                        attributes: ['user_name']
@@ -34,7 +35,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// get one post 
+// get one blog 
 router.get('/:id', async (req, res) => {
     try {
         const blogData = await Blog.findOne({
@@ -42,6 +43,7 @@ router.get('/:id', async (req, res) => {
                 id: req.params.id
             },
             attributes: [
+                'id',
                 'title',
                 'post_contents',
                 'created_at'
@@ -50,7 +52,7 @@ router.get('/:id', async (req, res) => {
             include: [
                 {
                    model: Comment,
-                   attributes: ['comment_text', 'created_at'],
+                   attributes: ['id', 'comment_text', 'created_at'],
                    include: {
                        model: User,
                        attributes: ['user_name']

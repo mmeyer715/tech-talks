@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
     try{
         const blogData = await Blog.findAll({
             attributes: [
+                'id',
                 'title',
                 'post_contents',
                 'created_at'
@@ -14,7 +15,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Comment,
-                    attributes: ['comment_text', 'created_at'],
+                    attributes: ['id', 'comment_text', 'created_at'],
                     include: {
                         model: User,
                         attributes: ['user_name']
@@ -42,14 +43,15 @@ router.get('/blogs/:id', async  (req, res) => {
                 id: req.params.id
             },
             attributes: [
-                'post_contents',
+                'id',
                 'title',
+                'post_contents',
                 'created_at'
             ],
             include: [
                 {
                     model: Comment,
-                    attributes: ['comment_text', 'created_at'],
+                    attributes: ['id', 'comment_text', 'created_at'],
                     include: {
                         model: User,
                         attributes: ['user_name']

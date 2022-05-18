@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
     try {
         const commentData = await Comment.findAll({
             attributes: [
+                'id',
                 'comment_text',
                 'created_at'
             ],
