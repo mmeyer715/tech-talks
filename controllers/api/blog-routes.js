@@ -71,12 +71,13 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// create blog
 router.post('/', async (req, res) => {
     try {
         const blogData = await Blog.create({
         title: req.body.title,
         post_contents: req.body.post_contents,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
         });
         res.status(200).json(blogData);
     } catch (err) {

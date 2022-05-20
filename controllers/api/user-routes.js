@@ -90,7 +90,7 @@ router.post('/login', async (req, res) => {
         // If login successful, set up express session login
         req.session.save(() => {
             req.session.user_id = userData.id;
-            req.session.user_name
+            req.session.user_name = userData.user_name;
             req.session.loggedIn = true;
             res.json({ user: userData, message: 'You are now logged in!' });
         });

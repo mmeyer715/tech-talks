@@ -1,18 +1,18 @@
 <article class="blog">
     <div class="title">
-        <a href="{{Blog.post_contents}}" target="_blank">{{Blog.title}}</a>
-        <span>({{Blog.post_contents}})</span>
+        <a href="{{blog.post_contents}}" target="_blank">{{blog.title}}</a>
+        <span>({{blog.post_contents}})</span>
     </div>
     <div class="meta">
-        By: {{Blog.User.user_name}} on {{Blog.created_at}}
+        By: {{blog.User.user_name}} on {{blog.created_at}}
         |
-        <a href="/blogs/{{Blog.id}}">{{Blog.Comments.length}} comments</a>
+        <a href="/blogs/{{blog.id}}">{{blog.Comments.length}} comments</a>
     </div>
 </article>
 
 <form class="comment-form">
     <div>
-        <textarea name="comment-body"></textarea>
+        <textarea name="comment-body"> </textarea>
     </div>
 
     <div>
@@ -21,7 +21,7 @@
 </form>
 
 <div class="comments">
-    {{#each Blog.Comments}}
+    {{#each blog.Comments}}
     <section class="comment">
         <div class="meta">
             {{ User.user_name }} on {{ created_at }}
