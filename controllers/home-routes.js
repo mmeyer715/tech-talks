@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
 
 router.get('/createblog', (req, res) => {
-    res.render('create-blog');
+    res.render('create-blog', {loggedIn: req.session.loggedIn});
 });
 
 router.get('/', async (req, res) => {
@@ -72,7 +72,7 @@ router.get('/blogs/:id', async  (req, res) => {
             return;
         }
         const blog = await blogData.get({ plain: true });
-        res.render('single-blog', { blog })
+        res.render('single-blog', { blog, loggedIn: req.session.loggedIn })
 
     } catch (err) {
         console.log(err);
@@ -85,7 +85,7 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
-    res.render('login');
+    res.render('login', {loggedIn: req.session.loggedIn});
 });
 
 router.get('/', (req, res) => {
