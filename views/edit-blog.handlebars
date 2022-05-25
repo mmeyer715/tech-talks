@@ -1,0 +1,18 @@
+<article>
+    <a href="/dashboard"> &larr; Back to Dashboard</a>
+    <h2>
+        Edit Blog Post
+    </h2>
+    <form class="edit-blog-form">
+        <div>
+            <input type="text" value="{{blog.title}}" />
+            <span>{{post_contents}}</span>
+        </div>
+        <div>
+           <a href="/blogs/{{blog.id}}">{{blog.Comments.length}}Comment(s)</a>
+            {{> comments blog.Comments }}
+        </div>
+        <button type="submit">Save</button>
+        <button type="button">Delete Blog Post</button>
+    </form>
+</article>
