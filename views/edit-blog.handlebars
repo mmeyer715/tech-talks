@@ -5,14 +5,18 @@
     </h2>
     <form class="edit-blog-form">
         <div>
-            <input type="text" value="{{blog.title}}" />
-            <span>{{post_contents}}</span>
+            <input type="text" name="blog_title" value="{{blog.title}}" />
+            <input type="text" name="post_contents" value="{{blog.post_contents}}"</input>
         </div>
         <div>
            <a href="/blogs/{{blog.id}}">{{blog.Comments.length}}Comment(s)</a>
             {{> comments blog.Comments }}
         </div>
         <button type="submit">Save</button>
-        <button type="button">Delete Blog Post</button>
+        <button type="button" class="delete-blog-btn">Delete Blog Post</button>
     </form>
 </article>
+
+<script src="/javascript/edit-blog.js"></script>
+<script src="/javascript/delete-blog.js"></script>
+<script src="/javascript/comment.js"></script>
