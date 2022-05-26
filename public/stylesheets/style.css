@@ -1,0 +1,56 @@
+body {
+    background-color: 	#0a1612;
+    color: #f7ce3e;
+}
+
+a {
+    color: 	#aaaaaa;
+}
+
+.navBar {
+    background-color: #f7ce3e;
+    color: #1a2930;
+}
+
+.navBar a {
+    color: #1a2930;
+}
+
+.navBar button {
+    background: none;
+	color: #1a2930;
+    font-size: 13px;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.blog {
+    border: solid #c5c1c0 5px;
+    margin: 50px;
+}
+
+.title h3 {
+    text-decoration: underline;
+}
+
+.loginForm {
+    border-right: solid #f7ce3e 2px;
+}
+
+.editBlogContainer {
+    background-color: #c5c1c0;
+    margin: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+.editBlogContainer h2 {
+    color: #1a2930;
+}
+
+.editBlogContainer button {
+    background-color: #0a1612;
+    margin: 5px;
+}

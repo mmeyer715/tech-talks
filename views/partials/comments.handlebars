@@ -1,10 +1,10 @@
-<div class="comment-form">
+<div class="row comment-form">
     {{#each this}}
-    <section class="comment">
-        <div class="meta">
-            By: {{ User.user_name }} on {{ format_date created_at }}
+    <section class="row comment">
+        <div class="col s4 right-align">
+            <b>{{ User.user_name }}</b> on {{ format_date created_at }}: 
         </div>
-        <div class="text">
+        <div class="col s6 text">
             {{ comment_text }}
         </div>
     </section>

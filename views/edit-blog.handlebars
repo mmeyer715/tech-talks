@@ -1,18 +1,31 @@
-<article>
+<div class="row center-align">
     <a href="/dashboard"> &larr; Back to Dashboard</a>
-    <h2>
-        Edit Blog Post
-    </h2>
-    <form class="edit-blog-form">
+    <article class="editBlogContainer">
+        <h2>
+            Edit Blog Post
+        </h2>
+        <form class="col s12 edit-blog-form">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="blog_title" value="{{blog.title}}" />
+                    <label for="editTitle">Title:</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" name="post_contents" value="{{blog.post_contents}}" />
+                    <label for="editBlogDescription">Blog Description:</label>
+                </div>
+            </div>
+            <button type="submit" name="action" class="edit-blog-btn btn waves-effect waves-light">Save
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
         <div>
-            <input type="text" name="blog_title" value="{{blog.title}}" />
-            <input type="text" name="post_contents" value="{{blog.post_contents}}"</input>
+            <button type="button" name="action" class="delete-blog-btn btn waves-effect waves-light">Delete Blog Post
+                <i class="material-icons">delete_forever</i>
+            </button>
         </div>
-        <button type="submit" class="edit-blog-btn">Save</button>
-    </form>
-    <button type="button" class="delete-blog-btn">Delete Blog Post</button>
-</article>
+    </article>
+</div>
 
 <script src="/javascript/edit-blog.js"></script>
 <script src="/javascript/delete-blog.js"></script>
-<script src="/javascript/comment.js"></script>

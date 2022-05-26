@@ -1,14 +1,16 @@
 <article class="blog">
-    <div class="title">
+    <div class="row title">
         <a href="/blogs/{{id}}">
-            <h1>{{title}}</h1>
+            <h3 class="col s12">{{title}}</h3>
         </a>
+    </div>
+    <div class="row">
         <p>{{post_contents}}</p>
     </div>
     <div class="meta">
         By: {{User.user_name}} on
         {{format_date created_at}}
         |
-        <a href="/blogs/{{id}}">{{Comments.length}} comments</a>
+        <a href="/blogs/{{id}}">({{Comments.length}}) comments</a>
     </div>
 </article>
