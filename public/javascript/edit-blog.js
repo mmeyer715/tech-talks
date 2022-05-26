@@ -6,6 +6,7 @@ async function editForm(event) {
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
+    console.log(title, post_contents, id);
     const response = await fetch(`/api/blogs/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
@@ -16,6 +17,7 @@ async function editForm(event) {
             'Content-Type': 'application/json'
         }
     });
+    console.log(response);
     if (response.ok) {
         document.location.replace('/dashboard/');
     } else {
@@ -23,4 +25,4 @@ async function editForm(event) {
     }
 }
 
-document.querySelector('submit').addEventListener('click', editForm);
+document.querySelector('.edit-blog-form').addEventListener('submit', editForm);

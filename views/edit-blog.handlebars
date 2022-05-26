@@ -8,13 +8,9 @@
             <input type="text" name="blog_title" value="{{blog.title}}" />
             <input type="text" name="post_contents" value="{{blog.post_contents}}"</input>
         </div>
-        <div>
-           <a href="/blogs/{{blog.id}}">{{blog.Comments.length}}Comment(s)</a>
-            {{> comments blog.Comments }}
-        </div>
-        <button type="submit">Save</button>
-        <button type="button" class="delete-blog-btn">Delete Blog Post</button>
+        <button type="submit" class="edit-blog-btn">Save</button>
     </form>
+    <button type="button" class="delete-blog-btn">Delete Blog Post</button>
 </article>
 
 <script src="/javascript/edit-blog.js"></script>

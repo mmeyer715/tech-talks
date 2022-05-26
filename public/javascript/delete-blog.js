@@ -5,7 +5,8 @@ async function deleteForm(event) {
         window.location.toString().split('/').length - 1
     ];
 
-
+    console.log(id);
+   
     const response = await fetch(`/api/blogs/${id}`, {
         method: 'DELETE',
         body: JSON.stringify({
@@ -15,7 +16,7 @@ async function deleteForm(event) {
             'Content-Type': 'application/json'
         }
     });
-
+    console.log(response);
     if (response.ok) {
         document.location.replace('/dashboard/');
     } else {
