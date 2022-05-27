@@ -54,3 +54,19 @@ a {
     background-color: #0a1612;
     margin: 5px;
 }
+
+.createBlog {
+    background-color: #c5c1c0;
+    margin: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+.createBlog label {
+    color: #1a2930;
+    margin: 5px;
+}
+
+.createBlog button {
+    background-color: #0a1612;
+    margin: 5px;
+}

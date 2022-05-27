@@ -16,8 +16,10 @@ const hbs = exphbs.create({ helpers });
 // setting up express session for user login/logout
 const sess = {
     secret: 'secret key',
-    cookie: {},
-    resave: false,
+    cookie: {
+        expires: 10 * 60 * 1000
+    },
+    resave: true,
     saveUninitialized: true,
     store: new sequelizeStore({
         db: sequelize

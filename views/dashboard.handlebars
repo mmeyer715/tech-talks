@@ -1,4 +1,4 @@
-<section>
+<section class="center-align">
     <h2>Create New Blog Post</h2>
     <form class="createBlog">
         <div>
@@ -9,23 +9,25 @@
             <label for="post-contents">Blog Description:</label>
             <textarea type="text" id="post-contents"></textarea>
         </div>
-        <div>
-            <button type="submit">Create Blog</button>
+        <div class="center-align">
+            <button type="submit" name="action" class="btn waves-effect waves-light">Create Blog
+                <i class="material-icons right">create</i>
+            </button>
         </div>
     </form>
 </section>
 
 {{#if blogs.length}}
-<section>
+<section class="userBlogs center-align">
     <h2>Your Blog Posts</h2>
-    <ol>
+    <ul>
         {{#each blogs as |blog|}}
         <li>
             {{> blog-info blog}}
             <a href="/dashboard/edit/{{blog.id}}">Edit Blog Post</a>
         </li>
         {{/each}}
-    </ol>
+    </ul>
 </section>
 {{/if}}
 
