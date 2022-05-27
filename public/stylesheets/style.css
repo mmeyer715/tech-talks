@@ -40,6 +40,10 @@ input {
     text-decoration: underline;
 }
 
+.comment-form textarea{
+    color:#1a2930;
+}
+
 .loginForm {
     border-right: solid #f7ce3e 2px;
 }
