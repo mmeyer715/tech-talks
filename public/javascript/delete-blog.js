@@ -10,7 +10,7 @@ async function deleteForm(event) {
     const response = await fetch(`/api/blogs/${id}`, {
         method: 'DELETE',
         body: JSON.stringify({
-            blog_id: id
+            id: id
         }),
         headers: {
             'Content-Type': 'application/json'
