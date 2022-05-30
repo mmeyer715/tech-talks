@@ -14,6 +14,7 @@ async function createBlog(event) {
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
+            alert('Blog post created successfully!');
             document.location.replace('/dashboard');
         } else {
             alert(response.statusText);

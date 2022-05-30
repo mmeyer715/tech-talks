@@ -16,6 +16,7 @@ async function signUpForm(event) {
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
+            alert('Account created successfully! Please login!');
             document.location.reload();
         } else {
             alert(response.statusText);
