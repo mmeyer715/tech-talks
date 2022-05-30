@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // get all comments
 router.get('/', async (req, res) => {
@@ -24,9 +25,9 @@ router.get('/', async (req, res) => {
 });
 
 // create new comment
-router.post('/', async (req, res) => {
+router.post('/', withAuth, (req, res) => {
     try {
-        const commentData = await Comment.create({
+        const commentData = Comment.create({
             comment_text: req.body.comment_text,
             user_id: req.session.user_id,
             blog_id: req.body.blog_id
@@ -39,8 +40,22 @@ router.post('/', async (req, res) => {
 });
 
 // delete comment
-router.delete('/', (req, res) => {
-
+router.delete('/:id', withAuth, (req, res) => {
+    try {
+        const commentData = Comment.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        if (!commentData) {
+            res.status(404).json({ message: 'No comment found with that id!'});
+            return;
+        }
+        res.json(commentData);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 module.exports = router;

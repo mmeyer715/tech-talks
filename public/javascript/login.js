@@ -40,12 +40,13 @@ async function loginForm(event) {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            alert('Success')
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
     }
 }
 
-document.querySelector('.loginForm').addEventListener('submit', loginForm);
-document.querySelector('.signupForm').addEventListener('submit', signUpForm);
+document.querySelector('.loginBtn').addEventListener('click', loginForm);
+document.querySelector('.signupBtn').addEventListener('click', signUpForm);
