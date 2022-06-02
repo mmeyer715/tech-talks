@@ -2,10 +2,13 @@
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
 
+
+// route to render the createblog page
 router.get('/createblog', (req, res) => {
     res.render('create-blog', {loggedIn: req.session.loggedIn});
 });
 
+// finds all current blogs and renders them to the homepage
 router.get('/', async (req, res) => {
     try{
         const blogData = await Blog.findAll({
@@ -40,6 +43,8 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+// when user clicks on a blog title from homepage, route renders the select blog post
 router.get('/blogs/:id', async  (req, res) => {
     try {
         const blogData = await Blog.findOne({
@@ -80,6 +85,7 @@ router.get('/blogs/:id', async  (req, res) => {
     } 
 });
 
+// renders the login page, and starts session if user login is successful, if successful user will be redirected to dashboard, if unsuccessful user will be routed back to login page
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
