@@ -8,17 +8,11 @@ async function deleteForm(event) {
     console.log(id);
    
     const response = await fetch(`/api/blogs/${id}`, {
-        method: 'DELETE',
-        body: JSON.stringify({
-            id: id
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        method: 'DELETE'
     });
     console.log(response);
     if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
     }
