@@ -63,6 +63,10 @@ input {
     margin: 5px;
 }
 
+.editInput {
+    color: #1a2930;
+}
+
 .createBlog {
     background-color: #c5c1c0;
     margin: 0 5px 0 5px;
